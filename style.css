@@ -1,0 +1,86 @@
+.title-card {
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }
+
+  .card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 6px;
+    border-radius: 2px;
+    padding: 15px;
+    margin: 20px;
+    background-color: #FFF;
+    width: 403px;
+  }
+
+  .row,
+  .cell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .row:nth-of-type(even) {
+    background-color: #cfd5f7;
+  }
+
+  .data {
+    width: 300px;
+    margin: 2px;
+  }
+
+  .cell {
+    width: 100px;
+    display: flex;
+    align-items: center;
+  }
+
+  #company {
+    margin: 0 0 23px 0;
+  }
+
+  input[type=text] {
+    width: 75px;
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  progress {
+    background-color: white;
+    color: #2B388F;
+  }
+
+  progress:[value] {
+    background-color: pink;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .red {
+    color: red;
+  }
+
+  body {
+    font-family: sans-serif;
+  }
+
+  .sliders {
+    font-size: 15px;
+  }
+
+  #app {
+    background-color: #2B388F;
+  }
+
+  /* upper and lower bounds of slider */
