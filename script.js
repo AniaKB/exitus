@@ -3,7 +3,6 @@ new Vue ({
   el: '#app',
   data: function () {
     return {
-      password: '',
       sales: 1_200_000,
       company: 'Salesforce',
       profits: 225_000,
@@ -107,6 +106,29 @@ new Vue ({
     percent: function (num) {
       return num * 100;
     },
-    monthlyPayment: function () {}
+    monthlyPayment: function () {},
+    getData: function () {
+      /* network request goes here */
+      this.sales = 1_200_000;
+      this.company = 'Salesforce';
+      this.profits = 225_000;
+      this.addbacks = 30_000;
+      this.discretionary = 255_000;
+      this.taxes = 0.20;
+      this.salesMultiple = 0.58;
+      this.earningsMultiple = 3.25;
+      this.sellingPrice = 1_200_000;
+      this.workingCap = 50_000;
+      this.closingFees = 12_500;
+      this.guaranteeSBA = 20_000;
+      this.downpaymentPercent = 10;
+      this.personalExpenses = 8_000;
+      this.annualInterestRate = 0.06;
+      this.numberOfMonths = 12;
+      this.numberOfYears = 10;
+    }
+  },
+  created: function () {
+    this.getData();
   }
 });
