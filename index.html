@@ -3,32 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="script.js" defer></script>
+    <link ref="stylesheet" href="https://unpkg.com/vue-slider-component@3.2.15/theme/default.css">
     <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script defer src="https://unpkg.com/vue-slider-component@3.2.15/dist/vue-slider-component.umd.min.js"></script>
+    <script defer src="script.js"></script>
     <title>Exitus</title>
   </head>
   <body>
-  <div class="sliders" id="app">
+    <div class="sliders" id="app">
       <div class="title-card">
         Company:
         <input v-model="company" id="company">
+        <div class="row">
+          <div class="data">
+          </div>
+          <div class="cell">
+            Your Data
+          </div>
+          <div class="example">
+            Example Data
+          </div>
+        </div>
       </div>
       <div class="card">
         <div class="row">
           <div class="data">
-            {{ company }} sales (Finzap)
+            {{ company }} Sales (Finzap)
           </div>
           <div class="cell">
             $ {{ sales.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $1,200,000
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            {{ company }} profits (Finzap)
+            {{ company }} Profits (Finzap)
           </div>
           <div class="cell">
             $ {{ profits.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $225,000
           </div>
         </div>
         <div class="row">
@@ -37,6 +55,9 @@
           </div>
           <div class="cell">
             $ {{ addbacks.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $30,000
           </div>
         </div>
         <div class="row">
@@ -47,13 +68,19 @@
           <div class="cell">
             $ {{ discretionary.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $255,000
+          </div>
         </div>
         <div class="row">
           <div class="data">
             Taxes
           </div>
           <div class="cell">
-          &nbsp;{{ percent(taxes) }}%
+           &nbsp;{{ percent(taxes) }}%
+          </div>
+          <div class="example">
+            &nbsp;20%
           </div>
         </div>
         <div class="row">
@@ -63,39 +90,32 @@
           <div class="cell">
           $ {{ cashFlow.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $204,000
+          </div>
         </div>
       </div>
       <div class="card">
         <div class="row">
           <div class="data">
-          Sales Multiple
-          </div>
-          <div class="cell">
-          {{ salesMultiple }}&nbsp;
-          </div>
-        </div>
-        <div class="row">
-          <div class="data">
-          Earnings Multiple
+            Earnings Multiple
           </div>
           <div class="cell">
             {{ earningsMultiple }}&nbsp;
-            </div>
-        </div>
-        <div class="row">
-          <div class="data">
-          Value based on Sales Multiple
           </div>
-          <div class="cell">
-          ${{ valueSales.toLocaleString("en-US") }}
+          <div class="example">
+            3.25
           </div>
         </div>
         <div class="row">
           <div class="data">
-          Value based on Earnings Multiple
+            Value based on Earnings Multiple
           </div>
           <div class="cell">
-          ${{ valueEarnings.toLocaleString("en-US") }}
+            ${{ valueEarnings.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $663,000
           </div>
         </div>
       </div>
@@ -115,13 +135,19 @@
           <div class="cell">
             ${{ sellingPrice.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $1,200,000
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Working Cap
+            Working Capital
           </div>
           <div class="cell">
             ${{ workingCap.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $50,000
           </div>
         </div>
         <div class="row">
@@ -131,13 +157,19 @@
           <div class="cell">
             ${{ closingFees.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $12,500
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Guarantee SBA
+            SBA Fees
           </div>
           <div class="cell">
             ${{ guaranteeSBA.toLocaleString("en-US")  }}
+          </div>
+          <div class="example">
+            $20,000
           </div>
         </div>
         <div class="row">
@@ -147,10 +179,14 @@
           <div class="cell">
             ${{ subtotal.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $1,282,500
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Down Payment by Buyer<br>
+            Down Payment by Buyer
+            <br>
             <input
               v-model.number="downpaymentPercent"
               type="range"
@@ -158,20 +194,26 @@
               :max="100"
               class="slider"
             >
-            </div>
+          </div>
           <div class="cell">
-              ${{ downpayment.toLocaleString("en-US") }}
+            -${{ downpayment.toLocaleString("en-US") }}
           </div>
-          </div>
-          <div class="row">
-            <div class="data">
-              Loan Amount
-            </div>
-            <div class="cell">
-              ${{ loanAmount.toLocaleString("en-US") }}
-            </div>
+          <div class="example">
+            -$128,250
           </div>
         </div>
+        <div class="row">
+          <div class="data">
+            Loan Amount
+          </div>
+          <div class="cell">
+            ${{ loanAmount.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $1,154,250
+          </div>
+        </div>
+      </div>
       <div class="card">
         <div class="row">
           <div class="data">
@@ -180,13 +222,19 @@
           <div class="cell">
             ${{ payment.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $12,814.54
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Annualized Debt
+            Annual Debt
           </div>
           <div class="cell">
             ${{ annualizedDebt.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $153,774.48
           </div>
         </div>
       </div>
@@ -198,25 +246,38 @@
           <div class="cell">
             ${{ cashFlow.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $204,000
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Personal Expenses to live &nbsp;
+            Buyer Personal Expenses to live
+            <br>
+            <vue-slider
+              v-model="personalExpenses"
+              :min="0"
+              :max="cashFlow"
+            ></vue-slider>
+
+            <input
+              v-model="personalExpenses"
+              type="range"
+              min="0"
+              :max="cashFlow"
+              class="slider"
+            >
             $<input
               v-model="personalExpenses"
               type="text"
-            >
-            <br>
-            <input
-                  v-model="personalExpenses"
-                  type="range"
-                  min="0"
-                  :max="cashFlow"
-                  class="slider"
+              inputmode="numeric"
             >
           </div>
           <div class="cell">
             ${{ personalExpenses.toLocaleString("en-US") }}
+          </div>
+          <div class="example">
+            $0
           </div>
         </div>
         <div class="row">
@@ -226,27 +287,34 @@
           <div class="cell">
             ${{ netCashDebt.toLocaleString("en-US") }}
           </div>
+          <div class="example">
+            $204,000
+          </div>
         </div>
         <div class="row">
           <div class="data">
-            Debt Service
+            Debt Coverage Ratio
           </div>
           <div class="cell">
-          <span
-            class="green"
-            v-if="debtService >= 1.25"
-          >
-          {{ debtService }}
-          </span>
-          <span
-            class="red"
-            v-if="debtService < 1.25"
-          >
-          {{ debtService }}
-          </span>
+            <span
+              class="green"
+              v-if="debtService >= 1.25"
+            >
+              {{ debtService }}
+            </span>
+            <span
+              class="red"
+              v-if="debtService < 1.25"
+            >
+              {{ debtService }}
+            </span>
+          </div>
+          <div class="example">
+            1.33
+          </div>
           </div>
         </div>
       </div>
-  </div>
+    </div>
   </body>
 </html>

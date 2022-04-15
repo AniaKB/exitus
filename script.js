@@ -1,6 +1,9 @@
 console.clear();
 new Vue ({
   el: '#app',
+  components: {
+    VueSlider: window['vue-slider-component']
+  },
   data: function () {
     return {
       sales: 1_200_000,
