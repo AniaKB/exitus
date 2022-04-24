@@ -1,11 +1,32 @@
+body {
+  font-family: 'lato', sans-serif;
+  background-image: linear-gradient(#628FDE, #2B388F);
+}
+
+#app {
+  padding: 20px;
+  background-color: #2B388F;
+  background-image: linear-gradient(#2B388F, #628FDE);
+  border-radius: 2px;
+}
+
 .title-card {
   display: block;
   background-color: white;
   border-radius: 6px;
   margin-left: auto;
   margin-right: auto;
-  padding: 15px;
+  padding: 25px;
   width: 600px;
+  font-family: 'lato', sans-serif;
+  font-weight: 700px;
+  font-size: 20px;
+}
+
+#company {
+  margin: 0px 0px 23px 0px;
+  width: 90px;
+  border-radius: 2px;
 }
 
 .card {
@@ -26,13 +47,17 @@
 }
 
 .row:nth-of-type(even) {
-  background-color: #cfd5f7;
+  background-color: #968D7F;
+  background-image: linear-gradient(to right, #C7DAFCF5, #C9D5EB, #cfd5f7cd);
+  border-radius: 2px;
 }
 
 .data {
-  width: 300px;
-  margin: 2px;
+  width: 350px;
+  margin: 4px;
   justify-content: space-between;
+  font-family: 'lato', sans-serif;
+  font-weight: 400;
 }
 
 .cell {
@@ -40,6 +65,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
 
 .example {
@@ -48,21 +75,14 @@
   justify-content: space-between;
 }
 
-#company {
-  margin: 0px 0px 23px 0px;
-}
-
 input[type="text"] {
   width: 75px;
+  font-size: 16px;
+  font-family: 'lato', sans-serif;
 }
 
 .hidden {
   visibility: hidden;
-}
-
-progress {
-  background-color: white;
-  color: #2B388F;
 }
 
 .green {
@@ -73,15 +93,8 @@ progress {
   color: red;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #2B388F;
-}
-
-#app {
-  background-color: #2B388F;
-}
-
-.sliders {
-  font-size: 15px;
+.slider {
+  margin-top: 35px;
+  margin-left: 10px;
+  width: 360px;
 }

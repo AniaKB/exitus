@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link ref="stylesheet" href="https://unpkg.com/vue-slider-component@3.2.15/theme/default.css">
+    <link rel="stylesheet" href="https://unpkg.com/vue-slider-component@3.2.15/theme/default.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script defer src="https://unpkg.com/vue-slider-component@3.2.15/dist/vue-slider-component.umd.min.js"></script>
     <script defer src="script.js"></script>
@@ -13,8 +16,8 @@
   <body>
     <div class="sliders" id="app">
       <div class="title-card">
-        Company:
-        <input v-model="company" id="company">
+        Company:&nbsp;
+        <input v-model="company" id="company" type="text">
         <div class="row">
           <div class="data">
           </div>
@@ -29,7 +32,7 @@
       <div class="card">
         <div class="row">
           <div class="data">
-            {{ company }} Sales (Finzap)
+            {{ company }} Sales
           </div>
           <div class="cell">
             $ {{ sales.toLocaleString("en-US") }}
@@ -40,7 +43,7 @@
         </div>
         <div class="row">
           <div class="data">
-            {{ company }} Profits (Finzap)
+            {{ company }} Profits
           </div>
           <div class="cell">
             $ {{ profits.toLocaleString("en-US") }}
@@ -51,7 +54,7 @@
         </div>
         <div class="row">
           <div class="data">
-            {{ company }} Addbacks (Finzap)
+            {{ company }} Addbacks
           </div>
           <div class="cell">
             $ {{ addbacks.toLocaleString("en-US") }}
@@ -124,13 +127,16 @@
           <div class="data">
             Selling Price of the Business
             <br>
-            <input
-              v-model.number="sellingPrice"
-              type="range"
-              min="1"
-              :max="1_000_000"
-              class="slider"
-            >
+            <div class="slider">
+              <vue-slider
+                v-model.number="sellingPrice"
+                :tooltip-formatter="(value) => '$ ' + value.toLocaleString('en-US')"
+                tooltip="always"
+                :min="0"
+                :max="sales"
+                :interval="5"
+              ></vue-slider>
+            </div>
           </div>
           <div class="cell">
             ${{ sellingPrice.toLocaleString("en-US") }}
@@ -187,13 +193,16 @@
           <div class="data">
             Down Payment by Buyer
             <br>
-            <input
-              v-model.number="downpaymentPercent"
-              type="range"
-              min="0"
-              :max="100"
-              class="slider"
-            >
+            <div class="slider">
+              <vue-slider
+                v-model.number="downpaymentPercent"
+                :tooltip-formatter="'{value} %'"
+                tooltip="always"
+                :min="0"
+                :max="100"
+                :interval="1"
+              ></vue-slider>
+            </div>
           </div>
           <div class="cell">
             -${{ downpayment.toLocaleString("en-US") }}
@@ -253,25 +262,16 @@
         <div class="row">
           <div class="data">
             Buyer Personal Expenses to live
-            <br>
-            <vue-slider
-              v-model="personalExpenses"
-              :min="0"
-              :max="cashFlow"
-            ></vue-slider>
-
-            <input
-              v-model="personalExpenses"
-              type="range"
-              min="0"
-              :max="cashFlow"
-              class="slider"
-            >
-            $<input
-              v-model="personalExpenses"
-              type="text"
-              inputmode="numeric"
-            >
+            <div class="slider">
+              <vue-slider
+                v-model="personalExpenses"
+                :tooltip-formatter="(value) => '$ ' + value.toLocaleString('en-US')"
+                tooltip="always"
+                :min="0"
+                :max="cashFlow"
+                :interval="5"
+              ></vue-slider>
+            </div>
           </div>
           <div class="cell">
             ${{ personalExpenses.toLocaleString("en-US") }}

@@ -1,4 +1,6 @@
 console.clear();
+Vue.config.devtools = true;
+window.__VUE_PROD_DEVTOOLS__ = true;
 new Vue ({
   el: '#app',
   components: {
@@ -19,7 +21,7 @@ new Vue ({
       closingFees: 12_500,
       guaranteeSBA: 20_000,
       downpaymentPercent: 10,
-      personalExpenses: 8_000,
+      personalExpenses: 0,
       annualInterestRate: 0.06,
       numberOfMonths: 12,
       numberOfYears: 10
@@ -125,7 +127,7 @@ new Vue ({
       this.closingFees = 12_500;
       this.guaranteeSBA = 20_000;
       this.downpaymentPercent = 10;
-      this.personalExpenses = 8_000;
+      this.personalExpenses = 0;
       this.annualInterestRate = 0.06;
       this.numberOfMonths = 12;
       this.numberOfYears = 10;
