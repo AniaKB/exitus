@@ -135,6 +135,8 @@
                 :min="0"
                 :max="sales"
                 :interval="5"
+                :rail-style="railStyles"
+                :process-style="sliderStyles"
               ></vue-slider>
             </div>
           </div>
@@ -201,7 +203,10 @@
                 :min="0"
                 :max="100"
                 :interval="1"
-              ></vue-slider>
+                :rail-style="railStyles"
+                :process-style="sliderStyles"
+                :tool-tip-style="sliderStyles"
+              ></vue-slider>&nbsp;
             </div>
           </div>
           <div class="cell">
@@ -270,6 +275,8 @@
                 :min="0"
                 :max="cashFlow"
                 :interval="5"
+                :rail-style="railStyles"
+                :process-style="sliderStyles"
               ></vue-slider>
             </div>
           </div>

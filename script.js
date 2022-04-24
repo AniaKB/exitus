@@ -8,6 +8,12 @@ new Vue ({
   },
   data: function () {
     return {
+      railStyles: {
+        background: '#968D7F'
+      },
+      sliderStyles: {
+        background: '#2B388F'
+      },
       sales: 1_200_000,
       company: 'Salesforce',
       profits: 225_000,
