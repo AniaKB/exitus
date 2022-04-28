@@ -23,9 +23,9 @@ body {
 }
 
 #company {
-    margin: 0px 0px 23px 0px;
-    width: 90px;
+    width: 120px;
     border-radius:2px
+    border-style: none;
 }
 
 .card {
@@ -48,7 +48,7 @@ body {
 .row:nth-of-type(even) {
     background-color: #968D7F;
     background-image: linear-gradient(to right, #C7DAFCF5, #C9D5EB, #cfd5f7cd);
-    border-radius: 2px
+    border-radius: 2px;
 }
 
 .data {
@@ -93,7 +93,8 @@ input[type="text"] {
 }
 
 .slider {
-    margin-top: 35px;
+    margin-top:6px;
     margin-left: 10px;
+    margin-bottom: 35px;
     width: 360px;
 }

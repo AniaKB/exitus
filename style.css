@@ -24,8 +24,7 @@ body {
 }
 
 #company {
-  margin: 0px 0px 23px 0px;
-  width: 90px;
+  width: 120px;
   border-radius: 2px;
 }
 
@@ -79,6 +78,7 @@ input[type="text"] {
   width: 75px;
   font-size: 16px;
   font-family: 'lato', sans-serif;
+  border: none;
 }
 
 .hidden {
@@ -94,7 +94,8 @@ input[type="text"] {
 }
 
 .slider {
-  margin-top: 35px;
-  margin-left: 10px;
-  width: 360px;
+    margin-top:6px;
+    margin-left: 10px;
+    margin-bottom: 35px;
+    width: 360px;
 }

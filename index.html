@@ -102,6 +102,18 @@
         <div class="row">
           <div class="data">
             Earnings Multiple
+            <div class="slider">
+              <vue-slider
+                v-model.number="earningsMultiple"
+                tooltip="always"
+                :min="0"
+                :max="5"
+                :interval="0.25"
+                :rail-style="railStyles"
+                :process-style="sliderStyles"
+                tooltip-placement="bottom"
+              ></vue-slider>
+            </div>
           </div>
           <div class="cell">
             {{ earningsMultiple }}&nbsp;
@@ -125,7 +137,10 @@
       <div class="card">
         <div class="row">
           <div class="data">
-            Selling Price of the Business
+            Selling Price of the Business&nbsp;
+            $ <input
+              v-model="sellingPrice.toLocaleString('en-US')"
+            >
             <br>
             <div class="slider">
               <vue-slider
@@ -134,9 +149,10 @@
                 tooltip="always"
                 :min="0"
                 :max="sales"
-                :interval="5"
+                :interval="5000"
                 :rail-style="railStyles"
                 :process-style="sliderStyles"
+                tooltip-placement="bottom"
               ></vue-slider>
             </div>
           </div>
@@ -194,7 +210,6 @@
         <div class="row">
           <div class="data">
             Down Payment by Buyer
-            <br>
             <div class="slider">
               <vue-slider
                 v-model.number="downpaymentPercent"
@@ -206,7 +221,8 @@
                 :rail-style="railStyles"
                 :process-style="sliderStyles"
                 :tool-tip-style="sliderStyles"
-              ></vue-slider>&nbsp;
+                tooltip-placement="bottom"
+              ></vue-slider>
             </div>
           </div>
           <div class="cell">
@@ -266,7 +282,11 @@
         </div>
         <div class="row">
           <div class="data">
-            Buyer Personal Expenses to live
+            Buyer Personal Expenses to live&nbsp;
+            $ <input
+              v-model="personalExpenses.toLocaleString('en-US')"
+              size="15"
+              >
             <div class="slider">
               <vue-slider
                 v-model="personalExpenses"
@@ -274,9 +294,10 @@
                 tooltip="always"
                 :min="0"
                 :max="cashFlow"
-                :interval="5"
+                :interval="100"
                 :rail-style="railStyles"
                 :process-style="sliderStyles"
+                tooltip-placement="bottom"
               ></vue-slider>
             </div>
           </div>
